@@ -1,0 +1,66 @@
+mean_shift:
+  single:
+    - {location: beginning, num_breaks: 1}
+    - {location: middle, num_breaks: 1}
+    - {location: end, num_breaks: 1}
+  multi:
+    - {num_breaks: 2}
+    - {num_breaks: 3}
+    - {num_breaks: 4}  # Maksimum 4 kırılma noktası ekledim
+
+variance_shift:
+  single:
+    - {location: beginning, num_breaks: 1}
+    - {location: middle, num_breaks: 1}
+    - {location: end, num_breaks: 1}
+  multi:
+    - {num_breaks: 2}
+    - {num_breaks: 3}  # 3 kırılma noktası ekledim
+    - {num_breaks: 4}  # 4 kırılma noktası ekledim
+
+trend_shift:
+  single:
+    - {location: beginning, change_type: direction_change}
+    - {location: beginning, change_type: magnitude_change}
+    - {location: beginning, change_type: direction_and_magnitude_change}
+    - {location: middle, change_type: direction_change}
+    - {location: middle, change_type: magnitude_change}
+    - {location: middle, change_type: direction_and_magnitude_change}
+    - {location: end, change_type: direction_change}
+    - {location: end, change_type: magnitude_change}
+    - {location: end, change_type: direction_and_magnitude_change}
+  multi:
+    - {num_breaks: 2, change_type: direction_change}
+    - {num_breaks: 2, change_type: magnitude_change}
+    - {num_breaks: 2, change_type: direction_and_magnitude_change}
+    - {num_breaks: 3, change_type: direction_change}  # 3 kırılma ekledim
+    - {num_breaks: 4, change_type: magnitude_change}  # 4 kırılma ekledim
+
+point_anomaly:
+  single:
+    - {location: beginning}
+    - {location: middle}
+    - {location: end}
+  multi:
+    - {num_anomalies: 2}  # Belirtilen sayıda anomali
+    - {num_anomalies: 3}  # 3 anomali ekledim
+    - {num_anomalies: 4}  # 4 anomali ekledim
+
+collective_anomaly:
+  single:
+    - {location: beginning, num_anomalies: 1}
+    - {location: middle, num_anomalies: 1}
+    - {location: end, num_anomalies: 1}
+  multi:
+    - {num_anomalies: 2}
+    - {num_anomalies: 3}  # 3 anomali
+    - {num_anomalies: 4}  # 4 anomali
+
+contextual_anomaly:
+  single:
+    - {location: beginning}
+    - {location: middle}
+    - {location: end}
+  multi:
+    - {num_anomalies: 2}
+    - {num_anomalies: 3}
