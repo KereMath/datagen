@@ -14,10 +14,6 @@ START_DAY   = "2020-01-01"
 N_PER_CASE  = 20
 COL_ORDER   = Path("columns.txt").read_text().strip().splitlines()
 
-# İzin verilen anomali/kırılma sayıları
-MIN_EVENT_COUNT = 1
-MAX_EVENT_COUNT = 10  # Maksimum kabul edilebilir anomali/kırılma sayısı
-
 # ── yardımcı --------------------------------------------------------------
 def add_dates(df, start_date=START_DAY):
     """DataFrame'e tarih sütunu ekler"""
@@ -37,7 +33,6 @@ def mark_cols(df, flags):
 
 def save_csv(df, path):
     """DataFrame'i CSV olarak kaydeder"""
-    # Sütun sırasını koruyan şekilde kaydet
     df.to_csv(path, index=False, columns=[c for c in COL_ORDER if c in df.columns])
 
 def save_plot(df, brk_idx, an_idx, png_path, event_info=None, add_text=True):
@@ -90,37 +85,6 @@ def save_plot(df, brk_idx, an_idx, png_path, event_info=None, add_text=True):
     plt.grid(True, linestyle='--', alpha=0.6)
     plt.savefig(png_path, dpi=120)
     plt.close()
-
-# Listeyi düzleştiren yardımcı fonksiyon
-def flatten_list(nested_list):
-    """Herhangi bir iç içe listeyi düz tek seviyeli liste haline getir"""
-    if isinstance(nested_list, (list, tuple, np.ndarray)):
-        result = []
-        for item in nested_list:
-            if isinstance(item, (list, tuple, np.ndarray)):
-                result.extend(flatten_list(item))
-            else:
-                result.append(item)
-        return result
-    else:
-        return [nested_list]  # Tek bir eleman
-
-def check_event_count(idx_list, expected_count, allowed_range=None):
-    """İndeks listesinin uzunluğunu beklenen sayıyla karşılaştırır"""
-    if allowed_range is None:
-        allowed_range = (expected_count - 1, expected_count + 1)  # Varsayılan tolerans
-    
-    if not idx_list:
-        return False
-    
-    actual_count = len(idx_list)
-    min_count, max_count = allowed_range
-    
-    # Özel durum: point_anomalies ve contextual_anomalies için özel kontrol
-    if expected_count > 1 and actual_count < min_count:
-        return False
-    
-    return min_count <= actual_count <= max_count
 
 def mark_event_characteristics(df, event_info, brk_idx, an_idx):
     """DataFrame'e olay özelliklerini bayrak olarak işaretler (0/1 formatında)"""
@@ -176,18 +140,14 @@ def main():
 
     for family, groups in cases.items():
         for mode, cfgs in groups.items():
-            # Contextual anomaly multi case'lerini atla
-            if family == "contextual_anomaly" and mode == "multi":
-                print(f"NOT: contextual_anomaly multi case'leri desteklenmiyor. Atlanıyor...")
-                continue
-                
             for cfg_idx, spec in enumerate(cfgs):
                 # Parametre bilgilerini ayıkla
                 location = spec.get("location", None)
                 num_breaks = spec.get("num_breaks", 1)
                 num_anomalies = spec.get("num_anomalies", 1)
                 change_type = spec.get("change_type", None)
-                is_multi = (num_breaks > 1 or num_anomalies > 1)
+                target_anomalies = spec.get("target_anomalies", None)
+                is_multi = (num_breaks > 1 or num_anomalies > 1 or (family == "point_anomaly" and mode == "multi"))
                 
                 # Alt klasör yapısını oluştur
                 if location:
@@ -204,7 +164,7 @@ def main():
                 successful_cases = 0
                 attempts = 0
                 
-                while successful_cases < N_PER_CASE and attempts < N_PER_CASE * 5:
+                while successful_cases < N_PER_CASE and attempts < N_PER_CASE * 3:
                     attempts += 1
                     
                     # Rastgele uzunlukta zaman serisi oluştur
@@ -216,179 +176,92 @@ def main():
                     event_info = {
                         'family': family,
                         'mode': mode,
-                        'count': num_breaks if family in ["mean_shift", "variance_shift", "trend_shift"] else num_anomalies,
+                        'count': num_breaks if family in ["mean_shift", "variance_shift", "trend_shift"] else (target_anomalies if family == "point_anomaly" else num_anomalies),
                         'location': location,
                         'type': change_type,
                         'is_multi': is_multi,
                     }
                     
-                    # --- olay üretimi --------------------------------------
-                    try:
-                        if family == "mean_shift":
-                            # num_breaks parametresi fonksiyonda var
-                            df_raw, shifts_info = ts.generate_mean_shift(base, **spec)
-                            try:
-                                idx = flatten_list(df_raw.at[0, "mean_shift_point"])
-                            except:
-                                idx = []
-                                for info in shifts_info:
-                                    if isinstance(info, tuple) and len(info) > 1:
-                                        idx.extend(flatten_list(info[1]))
+                    # --- olay üretimi (TSGen parametreleri direkt kullan) -------
+                    if family == "mean_shift":
+                        df_raw, shifts_info = ts.generate_mean_shift(base, **spec)
+                        brk_idx = shifts_info[0][1] if shifts_info else []
+                        an_idx = []
+                        flags = ["mean_shift"]
+                        event_info['details'] = f"Mean level shift - {location or 'multiple'} location"
+                        
+                    elif family == "variance_shift":
+                        df_raw, shifts_info = ts.generate_variance_shift(base, **spec)
+                        brk_idx = shifts_info[0][1] if shifts_info else []
+                        an_idx = []
+                        flags = ["var_shift"]
+                        event_info['details'] = f"Variance change - {location or 'multiple'} location"
+                        
+                    elif family == "trend_shift":
+                        df_raw, shifts_info = ts.generate_trend_shift(base, signs=[1], **spec)
+                        brk_idx = shifts_info[0][1] if shifts_info else []
+                        an_idx = []
+                        flags = ["trend_shift"]
+                        event_info['details'] = f"Trend shift ({change_type or 'unknown'}) - {location or 'multiple'} location"
+                        
+                    elif family == "point_anomaly":
+                        if mode == "single":
+                            df_raw, info = ts.generate_point_anomaly(base, location=location)
+                            an_idx = list(info[0][1]) if info else []
+                            flags = ["point_anom_single"]
+                        else:
+                            # Multi: TSGen num_anomalies desteklemiyor, wrapper kontrolü gerekli
+                            df_raw, info = ts.generate_point_anomalies(base)
+                            actual_anomalies = info[0][0] if info else 0
+                            an_idx = list(info[0][1][0]) if info and len(info[0][1]) > 0 else []
                             
-                            flags, brk_idx, an_idx = ["mean_shift"], idx, []
-                            event_info['details'] = f"Mean level shift - {event_info['location'] or 'multiple'} location"
-                            
-                            # Kırılma noktası sayısını kontrol et
-                            if not check_event_count(brk_idx, num_breaks, (num_breaks, num_breaks)):
-                                print(f"Beklenen kırılma sayısı: {num_breaks}, bulunan: {len(brk_idx)}. Yeniden üretiliyor...")
-                                continue
-                            
-                        elif family == "variance_shift":
-                            df_raw, shifts_info = ts.generate_variance_shift(base, **spec)
-                            try:
-                                idx = flatten_list(df_raw.at[0, "variance_shift_points"])
-                            except:
-                                idx = []
-                                for info in shifts_info:
-                                    if isinstance(info, tuple) and len(info) > 1:
-                                        idx.extend(flatten_list(info[1]))
-                            
-                            flags, brk_idx, an_idx = ["var_shift"], idx, []
-                            event_info['details'] = f"Variance change - {event_info['location'] or 'multiple'} location"
-                            
-                            # Kırılma noktası sayısını kontrol et
-                            if not check_event_count(brk_idx, num_breaks, (num_breaks, num_breaks)):
-                                print(f"Beklenen kırılma sayısı: {num_breaks}, bulunan: {len(brk_idx)}. Yeniden üretiliyor...")
-                                continue
-                            
-                        elif family == "trend_shift":
-                            df_raw, shifts_info = ts.generate_trend_shift(base, signs=[1], **spec)
-                            try:
-                                idx = flatten_list(df_raw.at[0, "trend_shift_points"])
-                            except:
-                                idx = []
-                                for info in shifts_info:
-                                    if isinstance(info, tuple) and len(info) > 1:
-                                        idx.extend(flatten_list(info[1]))
-                            
-                            flags, brk_idx, an_idx = ["trend_shift"], idx, []
-                            event_info['details'] = f"Trend shift ({change_type or 'unknown'}) - {event_info['location'] or 'multiple'} location"
-                            
-                            # Kırılma noktası sayısını kontrol et
-                            if not check_event_count(brk_idx, num_breaks, (num_breaks, num_breaks)):
-                                print(f"Beklenen kırılma sayısı: {num_breaks}, bulunan: {len(brk_idx)}. Yeniden üretiliyor...")
-                                continue
-                            
-                        elif family == "point_anomaly":
-                            if mode == "single":
-                                # Single point anomaly
-                                df_raw, info = ts.generate_point_anomaly(base, location=spec.get('location'))
-                                flags = ["point_anom_single"]
-                                idx = flatten_list(info[0][1])
-                                expected_count = 1
+                            # Target anomali sayısı kontrolü
+                            if target_anomalies:
+                                if actual_anomalies != target_anomalies:
+                                    continue
                             else:
-                                # Multi point anomaly - num_anomalies parametresini KABUL ETMİYOR
-                                # Random üretildiği için istenen sayıda anomali üretene kadar dene
-                                df_raw, info = ts.generate_point_anomalies(base, scale_factor=spec.get('scale_factor', 1))
-                                flags = ["point_anom_multi"]
-                                idx = flatten_list(info[0][1])
-                                expected_count = num_anomalies
+                                # Target belirtilmemişse 2-4 arası kabul et
+                                if actual_anomalies < 2 or actual_anomalies > 4:
+                                    continue
                             
-                            flags, brk_idx, an_idx = flags, [], idx
-                            event_info['details'] = f"Point anomaly - {event_info['location'] or 'random'} location"
-                            
-                            # Multi mode ise ve beklenen sayıda anomali yoksa yeniden üret
-                            if mode == "multi" and not check_event_count(an_idx, expected_count):
-                                print(f"Beklenen anomali sayısı: {expected_count}, bulunan: {len(an_idx)}. Yeniden üretiliyor...")
-                                continue
-                            
-                        elif family == "collective_anomaly":
-                            # num_anomalies parametresi fonksiyonda var
-                            clean_spec = {k: v for k, v in spec.items() 
-                                        if k in ['num_anomalies', 'location', 'scale_factor', 
-                                                'min_distance', 'return_debug']}
-                            df_raw, info = ts.generate_collective_anomalies(base, **clean_spec)
-                            flags = ["collect_anom"]
-                            # info içinden başlangıç indeksleri alınır
-                            an_idx = [start for start, _ in info]
-                            brk_idx = []
-                            event_info['details'] = f"Collective anomaly - {event_info['location'] or 'random'} location"
-                            
-                            # Anomali sayısını kontrol et
-                            if mode == "multi" and not check_event_count(an_idx, num_anomalies):
-                                print(f"Beklenen anomali sayısı: {num_anomalies}, bulunan: {len(an_idx)}. Yeniden üretiliyor...")
-                                continue
-                            
-                        elif family == "contextual_anomaly":
-                            # Sadece 'single' mod desteklenir
-                            flags = ["context_anom"]
-                            
-                            # Contextual anomaly üret
-                            df_raw, info = ts.generate_contextual_anomalies(base, scale_factor=spec.get('scale_factor', 1))
-                            
-                            # info içinde (start, end) tuple olarak gelir
-                            if info and len(info) > 0:
-                                start, end = info[0]
-                                
-                                # Lokasyon kontrolü
-                                if location:
-                                    n = len(base['data'])
-                                    # Anomali konumunu kontrol et
-                                    if location == "beginning" and start > n * 0.3:
-                                        print(f"Anomali başlangıç bölgesi uygun değil: {start} > {n * 0.3}. Yeniden üretiliyor...")
-                                        continue
-                                    elif location == "middle" and (start < n * 0.4 or start > n * 0.6):
-                                        print(f"Anomali başlangıç bölgesi uygun değil: {start} < {n * 0.4} veya > {n * 0.6}. Yeniden üretiliyor...")
-                                        continue
-                                    elif location == "end" and start < n * 0.7:
-                                        print(f"Anomali başlangıç bölgesi uygun değil: {start} < {n * 0.7}. Yeniden üretiliyor...")
-                                        continue
-                                
-                                # Sadece başlangıç noktasını işaretleriz
-                                an_idx = [start]
-                            else:
-                                print("Contextual anomali üretilemedi. Yeniden deneniyor...")
-                                continue
-                            
-                            brk_idx = []
-                            event_info['details'] = f"Contextual anomaly - {event_info['location'] or 'random'} location"
-                            
+                            flags = ["point_anom_multi"]
+                        
+                        brk_idx = []
+                        event_info['details'] = f"Point anomaly - {location or 'random'} location"
+                        
+                    elif family == "collective_anomaly":
+                        df_raw, info = ts.generate_collective_anomalies(base, **spec)
+                        an_idx = [start for start, _ in info] if info else []
+                        brk_idx = []
+                        flags = ["collect_anom"]
+                        event_info['details'] = f"Collective anomaly - {location or 'random'} location"
+                        
+                    elif family == "contextual_anomaly":
+                        # Sadece single mode - TSGen multi desteklemiyor
+                        df_raw, info = ts.generate_contextual_anomalies(base)
+                        
+                        if info and len(info) > 0:
+                            start, end = info[0]
+                            an_idx = [start]
                         else:
                             continue
-                    except Exception as e:
-                        print(f"Hata oluştu: {e}. Yeniden üretiliyor...")
+                        
+                        brk_idx = []
+                        flags = ["context_anom"]
+                        event_info['details'] = f"Contextual anomaly"
+                        
+                    else:
                         continue
-                    # -------------------------------------------------------
-
-                    # Veri çerçevesi oluşturma (tüm sütunlar 0 ile başlar)
+                    
+                    # Veri çerçevesi oluşturma
                     df = empty_frame(length)
                     df["data"] = df_raw["data"].values
                     df["stationary"] = 0
                     
-                    # Kırılma/anomali noktalarını temizleme ve hazırlama
-                    if brk_idx is None:
-                        brk_idx = []
-                    if an_idx is None:
-                        an_idx = []
-                    
-                    # Her eleman int olmalı
-                    brk_idx = [int(idx) for idx in brk_idx if isinstance(idx, (int, np.integer))]
-                    an_idx = [int(idx) for idx in an_idx if isinstance(idx, (int, np.integer))]
-                    
-                    # DataFrame sınırları içinde olmalı
-                    brk_idx = [idx for idx in brk_idx if 0 <= idx < length]
-                    an_idx = [idx for idx in an_idx if 0 <= idx < length]
-                    
-                    # Son kontrol: İstenen sayıda kırılma/anomali var mı?
-                    expected_count = num_breaks if family in ["mean_shift", "variance_shift", "trend_shift"] else num_anomalies
-                    if is_multi and len(brk_idx) + len(an_idx) < expected_count:
-                        print(f"İstenen {expected_count} olaydan daha az ({len(brk_idx) + len(an_idx)}) var. Yeniden üretiliyor...")
-                        continue
-                    
                     # Tarih sütunu ekleme
                     df = add_dates(df)
                     
-                    # Olay özelliklerini işaretle (0/1 formatında)
+                    # Olay özelliklerini işaretle
                     df = mark_event_characteristics(df, event_info, brk_idx, an_idx)
                     
                     # Bayrak sütunlarını işaretle
@@ -406,12 +279,12 @@ def main():
                     save_plot(df, brk_idx, an_idx, png_path, event_info)
                     
                     successful_cases += 1
-                    print(f"Başarılı: {family}/{mode}/{location or ''} - {successful_cases}/{N_PER_CASE}")
+                    print(f"✓ {family}/{mode}/{location or ''} - {successful_cases}/{N_PER_CASE}")
                 
                 if successful_cases < N_PER_CASE:
-                    print(f"UYARI: {family}/{mode}/{location or ''} için yalnızca {successful_cases}/{N_PER_CASE} örnek üretilebildi!")
+                    print(f"⚠️  {family}/{mode} için yalnızca {successful_cases}/{N_PER_CASE} örnek üretilebildi!")
 
-    print(f"✓ Üretim tamamlandı. Çıktı klasörü: {ROOT_OUT}")
+    print(f"✅ Üretim tamamlandı. Çıktı klasörü: {ROOT_OUT}")
 
 if __name__ == "__main__":
     main()

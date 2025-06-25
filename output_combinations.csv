@@ -1,0 +1,518 @@
+Base;Type;Characteristic 1;Characteristic 2
+AR;Stationary;Anomaly: Point;
+AR;Stationary;Anomaly: Point;Trend: Linear
+AR;Stationary;Anomaly: Point;Trend: Quadratic
+AR;Stationary;Anomaly: Point;Trend: Cubic
+AR;Stationary;Anomaly: Point;Trend: Exponential
+AR;Stationary;Anomaly: Point;Trend: Damped (Linear)
+AR;Stationary;Anomaly: Point;Trend: Damped (Quadratic)
+AR;Stationary;Anomaly: Point;Trend: Damped (Oscillatory)
+AR;Stationary;Anomaly: Point;Seasonality: Single Seasonality
+AR;Stationary;Anomaly: Point;Seasonality: Multiple Seasonality
+AR;Stationary;Anomaly: Point;Break: Mean Shift
+AR;Stationary;Anomaly: Point;Break: Variance Shift
+AR;Stationary;Anomaly: Point;Break: Trend Shift
+AR;Stationary;Anomaly: Collective;
+AR;Stationary;Anomaly: Collective;Trend: Linear
+AR;Stationary;Anomaly: Collective;Trend: Quadratic
+AR;Stationary;Anomaly: Collective;Trend: Cubic
+AR;Stationary;Anomaly: Collective;Trend: Exponential
+AR;Stationary;Anomaly: Collective;Trend: Damped (Linear)
+AR;Stationary;Anomaly: Collective;Trend: Damped (Quadratic)
+AR;Stationary;Anomaly: Collective;Trend: Damped (Oscillatory)
+AR;Stationary;Anomaly: Collective;Seasonality: Single Seasonality
+AR;Stationary;Anomaly: Collective;Seasonality: Multiple Seasonality
+AR;Stationary;Anomaly: Collective;Break: Mean Shift
+AR;Stationary;Anomaly: Collective;Break: Variance Shift
+AR;Stationary;Anomaly: Collective;Break: Trend Shift
+AR;Stationary;Anomaly: Contextual;
+AR;Stationary;Anomaly: Contextual;Seasonality: Single Seasonality
+AR;Stationary;Anomaly: Contextual;Seasonality: Multiple Seasonality
+AR;Stationary;Break: Mean Shift;
+AR;Stationary;Break: Mean Shift;Trend: Linear
+AR;Stationary;Break: Mean Shift;Trend: Quadratic
+AR;Stationary;Break: Mean Shift;Trend: Cubic
+AR;Stationary;Break: Mean Shift;Trend: Exponential
+AR;Stationary;Break: Mean Shift;Trend: Damped (Linear)
+AR;Stationary;Break: Mean Shift;Trend: Damped (Quadratic)
+AR;Stationary;Break: Mean Shift;Trend: Damped (Oscillatory)
+AR;Stationary;Break: Mean Shift;Seasonality: Single Seasonality
+AR;Stationary;Break: Mean Shift;Seasonality: Multiple Seasonality
+AR;Stationary;Break: Mean Shift;Anomaly: Point
+AR;Stationary;Break: Mean Shift;Anomaly: Collective
+AR;Stationary;Break: Variance Shift;
+AR;Stationary;Break: Variance Shift;Trend: Linear
+AR;Stationary;Break: Variance Shift;Trend: Quadratic
+AR;Stationary;Break: Variance Shift;Trend: Cubic
+AR;Stationary;Break: Variance Shift;Trend: Exponential
+AR;Stationary;Break: Variance Shift;Trend: Damped (Linear)
+AR;Stationary;Break: Variance Shift;Trend: Damped (Quadratic)
+AR;Stationary;Break: Variance Shift;Trend: Damped (Oscillatory)
+AR;Stationary;Break: Variance Shift;Seasonality: Single Seasonality
+AR;Stationary;Break: Variance Shift;Seasonality: Multiple Seasonality
+AR;Stationary;Break: Variance Shift;Anomaly: Point
+AR;Stationary;Break: Variance Shift;Anomaly: Collective
+AR;Stationary;Break: Trend Shift;
+AR;Stationary;Break: Trend Shift;Trend: Linear
+AR;Stationary;Break: Trend Shift;Trend: Quadratic
+AR;Stationary;Break: Trend Shift;Trend: Cubic
+AR;Stationary;Break: Trend Shift;Trend: Exponential
+AR;Stationary;Break: Trend Shift;Trend: Damped (Linear)
+AR;Stationary;Break: Trend Shift;Trend: Damped (Quadratic)
+AR;Stationary;Break: Trend Shift;Trend: Damped (Oscillatory)
+AR;Stationary;Break: Trend Shift;Seasonality: Single Seasonality
+AR;Stationary;Break: Trend Shift;Seasonality: Multiple Seasonality
+AR;Stationary;Break: Trend Shift;Anomaly: Point
+AR;Stationary;Break: Trend Shift;Anomaly: Collective
+MA;Stationary;Anomaly: Point;
+MA;Stationary;Anomaly: Point;Trend: Linear
+MA;Stationary;Anomaly: Point;Trend: Quadratic
+MA;Stationary;Anomaly: Point;Trend: Cubic
+MA;Stationary;Anomaly: Point;Trend: Exponential
+MA;Stationary;Anomaly: Point;Trend: Damped (Linear)
+MA;Stationary;Anomaly: Point;Trend: Damped (Quadratic)
+MA;Stationary;Anomaly: Point;Trend: Damped (Oscillatory)
+MA;Stationary;Anomaly: Point;Seasonality: Single Seasonality
+MA;Stationary;Anomaly: Point;Seasonality: Multiple Seasonality
+MA;Stationary;Anomaly: Point;Break: Mean Shift
+MA;Stationary;Anomaly: Point;Break: Variance Shift
+MA;Stationary;Anomaly: Point;Break: Trend Shift
+MA;Stationary;Anomaly: Collective;
+MA;Stationary;Anomaly: Collective;Trend: Linear
+MA;Stationary;Anomaly: Collective;Trend: Quadratic
+MA;Stationary;Anomaly: Collective;Trend: Cubic
+MA;Stationary;Anomaly: Collective;Trend: Exponential
+MA;Stationary;Anomaly: Collective;Trend: Damped (Linear)
+MA;Stationary;Anomaly: Collective;Trend: Damped (Quadratic)
+MA;Stationary;Anomaly: Collective;Trend: Damped (Oscillatory)
+MA;Stationary;Anomaly: Collective;Seasonality: Single Seasonality
+MA;Stationary;Anomaly: Collective;Seasonality: Multiple Seasonality
+MA;Stationary;Anomaly: Collective;Break: Mean Shift
+MA;Stationary;Anomaly: Collective;Break: Variance Shift
+MA;Stationary;Anomaly: Collective;Break: Trend Shift
+MA;Stationary;Anomaly: Contextual;
+MA;Stationary;Anomaly: Contextual;Seasonality: Single Seasonality
+MA;Stationary;Anomaly: Contextual;Seasonality: Multiple Seasonality
+MA;Stationary;Break: Mean Shift;
+MA;Stationary;Break: Mean Shift;Trend: Linear
+MA;Stationary;Break: Mean Shift;Trend: Quadratic
+MA;Stationary;Break: Mean Shift;Trend: Cubic
+MA;Stationary;Break: Mean Shift;Trend: Exponential
+MA;Stationary;Break: Mean Shift;Trend: Damped (Linear)
+MA;Stationary;Break: Mean Shift;Trend: Damped (Quadratic)
+MA;Stationary;Break: Mean Shift;Trend: Damped (Oscillatory)
+MA;Stationary;Break: Mean Shift;Seasonality: Single Seasonality
+MA;Stationary;Break: Mean Shift;Seasonality: Multiple Seasonality
+MA;Stationary;Break: Mean Shift;Anomaly: Point
+MA;Stationary;Break: Mean Shift;Anomaly: Collective
+MA;Stationary;Break: Variance Shift;
+MA;Stationary;Break: Variance Shift;Trend: Linear
+MA;Stationary;Break: Variance Shift;Trend: Quadratic
+MA;Stationary;Break: Variance Shift;Trend: Cubic
+MA;Stationary;Break: Variance Shift;Trend: Exponential
+MA;Stationary;Break: Variance Shift;Trend: Damped (Linear)
+MA;Stationary;Break: Variance Shift;Trend: Damped (Quadratic)
+MA;Stationary;Break: Variance Shift;Trend: Damped (Oscillatory)
+MA;Stationary;Break: Variance Shift;Seasonality: Single Seasonality
+MA;Stationary;Break: Variance Shift;Seasonality: Multiple Seasonality
+MA;Stationary;Break: Variance Shift;Anomaly: Point
+MA;Stationary;Break: Variance Shift;Anomaly: Collective
+MA;Stationary;Break: Trend Shift;
+MA;Stationary;Break: Trend Shift;Trend: Linear
+MA;Stationary;Break: Trend Shift;Trend: Quadratic
+MA;Stationary;Break: Trend Shift;Trend: Cubic
+MA;Stationary;Break: Trend Shift;Trend: Exponential
+MA;Stationary;Break: Trend Shift;Trend: Damped (Linear)
+MA;Stationary;Break: Trend Shift;Trend: Damped (Quadratic)
+MA;Stationary;Break: Trend Shift;Trend: Damped (Oscillatory)
+MA;Stationary;Break: Trend Shift;Seasonality: Single Seasonality
+MA;Stationary;Break: Trend Shift;Seasonality: Multiple Seasonality
+MA;Stationary;Break: Trend Shift;Anomaly: Point
+MA;Stationary;Break: Trend Shift;Anomaly: Collective
+ARMA;Stationary;Anomaly: Point;
+ARMA;Stationary;Anomaly: Point;Trend: Linear
+ARMA;Stationary;Anomaly: Point;Trend: Quadratic
+ARMA;Stationary;Anomaly: Point;Trend: Cubic
+ARMA;Stationary;Anomaly: Point;Trend: Exponential
+ARMA;Stationary;Anomaly: Point;Trend: Damped (Linear)
+ARMA;Stationary;Anomaly: Point;Trend: Damped (Quadratic)
+ARMA;Stationary;Anomaly: Point;Trend: Damped (Oscillatory)
+ARMA;Stationary;Anomaly: Point;Seasonality: Single Seasonality
+ARMA;Stationary;Anomaly: Point;Seasonality: Multiple Seasonality
+ARMA;Stationary;Anomaly: Point;Break: Mean Shift
+ARMA;Stationary;Anomaly: Point;Break: Variance Shift
+ARMA;Stationary;Anomaly: Point;Break: Trend Shift
+ARMA;Stationary;Anomaly: Collective;
+ARMA;Stationary;Anomaly: Collective;Trend: Linear
+ARMA;Stationary;Anomaly: Collective;Trend: Quadratic
+ARMA;Stationary;Anomaly: Collective;Trend: Cubic
+ARMA;Stationary;Anomaly: Collective;Trend: Exponential
+ARMA;Stationary;Anomaly: Collective;Trend: Damped (Linear)
+ARMA;Stationary;Anomaly: Collective;Trend: Damped (Quadratic)
+ARMA;Stationary;Anomaly: Collective;Trend: Damped (Oscillatory)
+ARMA;Stationary;Anomaly: Collective;Seasonality: Single Seasonality
+ARMA;Stationary;Anomaly: Collective;Seasonality: Multiple Seasonality
+ARMA;Stationary;Anomaly: Collective;Break: Mean Shift
+ARMA;Stationary;Anomaly: Collective;Break: Variance Shift
+ARMA;Stationary;Anomaly: Collective;Break: Trend Shift
+ARMA;Stationary;Anomaly: Contextual;
+ARMA;Stationary;Anomaly: Contextual;Seasonality: Single Seasonality
+ARMA;Stationary;Anomaly: Contextual;Seasonality: Multiple Seasonality
+ARMA;Stationary;Break: Mean Shift;
+ARMA;Stationary;Break: Mean Shift;Trend: Linear
+ARMA;Stationary;Break: Mean Shift;Trend: Quadratic
+ARMA;Stationary;Break: Mean Shift;Trend: Cubic
+ARMA;Stationary;Break: Mean Shift;Trend: Exponential
+ARMA;Stationary;Break: Mean Shift;Trend: Damped (Linear)
+ARMA;Stationary;Break: Mean Shift;Trend: Damped (Quadratic)
+ARMA;Stationary;Break: Mean Shift;Trend: Damped (Oscillatory)
+ARMA;Stationary;Break: Mean Shift;Seasonality: Single Seasonality
+ARMA;Stationary;Break: Mean Shift;Seasonality: Multiple Seasonality
+ARMA;Stationary;Break: Mean Shift;Anomaly: Point
+ARMA;Stationary;Break: Mean Shift;Anomaly: Collective
+ARMA;Stationary;Break: Variance Shift;
+ARMA;Stationary;Break: Variance Shift;Trend: Linear
+ARMA;Stationary;Break: Variance Shift;Trend: Quadratic
+ARMA;Stationary;Break: Variance Shift;Trend: Cubic
+ARMA;Stationary;Break: Variance Shift;Trend: Exponential
+ARMA;Stationary;Break: Variance Shift;Trend: Damped (Linear)
+ARMA;Stationary;Break: Variance Shift;Trend: Damped (Quadratic)
+ARMA;Stationary;Break: Variance Shift;Trend: Damped (Oscillatory)
+ARMA;Stationary;Break: Variance Shift;Seasonality: Single Seasonality
+ARMA;Stationary;Break: Variance Shift;Seasonality: Multiple Seasonality
+ARMA;Stationary;Break: Variance Shift;Anomaly: Point
+ARMA;Stationary;Break: Variance Shift;Anomaly: Collective
+ARMA;Stationary;Break: Trend Shift;
+ARMA;Stationary;Break: Trend Shift;Trend: Linear
+ARMA;Stationary;Break: Trend Shift;Trend: Quadratic
+ARMA;Stationary;Break: Trend Shift;Trend: Cubic
+ARMA;Stationary;Break: Trend Shift;Trend: Exponential
+ARMA;Stationary;Break: Trend Shift;Trend: Damped (Linear)
+ARMA;Stationary;Break: Trend Shift;Trend: Damped (Quadratic)
+ARMA;Stationary;Break: Trend Shift;Trend: Damped (Oscillatory)
+ARMA;Stationary;Break: Trend Shift;Seasonality: Single Seasonality
+ARMA;Stationary;Break: Trend Shift;Seasonality: Multiple Seasonality
+ARMA;Stationary;Break: Trend Shift;Anomaly: Point
+ARMA;Stationary;Break: Trend Shift;Anomaly: Collective
+White Noise;Stationary;Anomaly: Point;
+White Noise;Stationary;Anomaly: Point;Trend: Linear
+White Noise;Stationary;Anomaly: Point;Trend: Quadratic
+White Noise;Stationary;Anomaly: Point;Trend: Cubic
+White Noise;Stationary;Anomaly: Point;Trend: Exponential
+White Noise;Stationary;Anomaly: Point;Trend: Damped (Linear)
+White Noise;Stationary;Anomaly: Point;Trend: Damped (Quadratic)
+White Noise;Stationary;Anomaly: Point;Trend: Damped (Oscillatory)
+White Noise;Stationary;Anomaly: Point;Seasonality: Single Seasonality
+White Noise;Stationary;Anomaly: Point;Seasonality: Multiple Seasonality
+White Noise;Stationary;Anomaly: Point;Break: Mean Shift
+White Noise;Stationary;Anomaly: Point;Break: Variance Shift
+White Noise;Stationary;Anomaly: Point;Break: Trend Shift
+White Noise;Stationary;Anomaly: Collective;
+White Noise;Stationary;Anomaly: Collective;Trend: Linear
+White Noise;Stationary;Anomaly: Collective;Trend: Quadratic
+White Noise;Stationary;Anomaly: Collective;Trend: Cubic
+White Noise;Stationary;Anomaly: Collective;Trend: Exponential
+White Noise;Stationary;Anomaly: Collective;Trend: Damped (Linear)
+White Noise;Stationary;Anomaly: Collective;Trend: Damped (Quadratic)
+White Noise;Stationary;Anomaly: Collective;Trend: Damped (Oscillatory)
+White Noise;Stationary;Anomaly: Collective;Seasonality: Single Seasonality
+White Noise;Stationary;Anomaly: Collective;Seasonality: Multiple Seasonality
+White Noise;Stationary;Anomaly: Collective;Break: Mean Shift
+White Noise;Stationary;Anomaly: Collective;Break: Variance Shift
+White Noise;Stationary;Anomaly: Collective;Break: Trend Shift
+White Noise;Stationary;Anomaly: Contextual;
+White Noise;Stationary;Anomaly: Contextual;Seasonality: Single Seasonality
+White Noise;Stationary;Anomaly: Contextual;Seasonality: Multiple Seasonality
+White Noise;Stationary;Break: Mean Shift;
+White Noise;Stationary;Break: Mean Shift;Trend: Linear
+White Noise;Stationary;Break: Mean Shift;Trend: Quadratic
+White Noise;Stationary;Break: Mean Shift;Trend: Cubic
+White Noise;Stationary;Break: Mean Shift;Trend: Exponential
+White Noise;Stationary;Break: Mean Shift;Trend: Damped (Linear)
+White Noise;Stationary;Break: Mean Shift;Trend: Damped (Quadratic)
+White Noise;Stationary;Break: Mean Shift;Trend: Damped (Oscillatory)
+White Noise;Stationary;Break: Mean Shift;Seasonality: Single Seasonality
+White Noise;Stationary;Break: Mean Shift;Seasonality: Multiple Seasonality
+White Noise;Stationary;Break: Mean Shift;Anomaly: Point
+White Noise;Stationary;Break: Mean Shift;Anomaly: Collective
+White Noise;Stationary;Break: Variance Shift;
+White Noise;Stationary;Break: Variance Shift;Trend: Linear
+White Noise;Stationary;Break: Variance Shift;Trend: Quadratic
+White Noise;Stationary;Break: Variance Shift;Trend: Cubic
+White Noise;Stationary;Break: Variance Shift;Trend: Exponential
+White Noise;Stationary;Break: Variance Shift;Trend: Damped (Linear)
+White Noise;Stationary;Break: Variance Shift;Trend: Damped (Quadratic)
+White Noise;Stationary;Break: Variance Shift;Trend: Damped (Oscillatory)
+White Noise;Stationary;Break: Variance Shift;Seasonality: Single Seasonality
+White Noise;Stationary;Break: Variance Shift;Seasonality: Multiple Seasonality
+White Noise;Stationary;Break: Variance Shift;Anomaly: Point
+White Noise;Stationary;Break: Variance Shift;Anomaly: Collective
+White Noise;Stationary;Break: Trend Shift;
+White Noise;Stationary;Break: Trend Shift;Trend: Linear
+White Noise;Stationary;Break: Trend Shift;Trend: Quadratic
+White Noise;Stationary;Break: Trend Shift;Trend: Cubic
+White Noise;Stationary;Break: Trend Shift;Trend: Exponential
+White Noise;Stationary;Break: Trend Shift;Trend: Damped (Linear)
+White Noise;Stationary;Break: Trend Shift;Trend: Damped (Quadratic)
+White Noise;Stationary;Break: Trend Shift;Trend: Damped (Oscillatory)
+White Noise;Stationary;Break: Trend Shift;Seasonality: Single Seasonality
+White Noise;Stationary;Break: Trend Shift;Seasonality: Multiple Seasonality
+White Noise;Stationary;Break: Trend Shift;Anomaly: Point
+White Noise;Stationary;Break: Trend Shift;Anomaly: Collective
+RW;Stochastic;Anomaly: Point;
+RW;Stochastic;Anomaly: Point;Break: Mean Shift
+RW;Stochastic;Anomaly: Point;Break: Variance Shift
+RW;Stochastic;Anomaly: Point;Break: Trend Shift
+RW;Stochastic;Anomaly: Collective;
+RW;Stochastic;Anomaly: Collective;Break: Mean Shift
+RW;Stochastic;Anomaly: Collective;Break: Variance Shift
+RW;Stochastic;Anomaly: Collective;Break: Trend Shift
+RW;Stochastic;Break: Mean Shift;
+RW;Stochastic;Break: Mean Shift;Anomaly: Point
+RW;Stochastic;Break: Mean Shift;Anomaly: Collective
+RW;Stochastic;Break: Variance Shift;
+RW;Stochastic;Break: Variance Shift;Anomaly: Point
+RW;Stochastic;Break: Variance Shift;Anomaly: Collective
+RW;Stochastic;Break: Trend Shift;
+RW;Stochastic;Break: Trend Shift;Anomaly: Point
+RW;Stochastic;Break: Trend Shift;Anomaly: Collective
+RW with Drift;Stochastic;Anomaly: Point;
+RW with Drift;Stochastic;Anomaly: Point;Break: Mean Shift
+RW with Drift;Stochastic;Anomaly: Point;Break: Variance Shift
+RW with Drift;Stochastic;Anomaly: Point;Break: Trend Shift
+RW with Drift;Stochastic;Anomaly: Collective;
+RW with Drift;Stochastic;Anomaly: Collective;Break: Mean Shift
+RW with Drift;Stochastic;Anomaly: Collective;Break: Variance Shift
+RW with Drift;Stochastic;Anomaly: Collective;Break: Trend Shift
+RW with Drift;Stochastic;Break: Mean Shift;
+RW with Drift;Stochastic;Break: Mean Shift;Anomaly: Point
+RW with Drift;Stochastic;Break: Mean Shift;Anomaly: Collective
+RW with Drift;Stochastic;Break: Variance Shift;
+RW with Drift;Stochastic;Break: Variance Shift;Anomaly: Point
+RW with Drift;Stochastic;Break: Variance Shift;Anomaly: Collective
+RW with Drift;Stochastic;Break: Trend Shift;
+RW with Drift;Stochastic;Break: Trend Shift;Anomaly: Point
+RW with Drift;Stochastic;Break: Trend Shift;Anomaly: Collective
+ARI;Stochastic;Anomaly: Point;
+ARI;Stochastic;Anomaly: Point;Break: Mean Shift
+ARI;Stochastic;Anomaly: Point;Break: Variance Shift
+ARI;Stochastic;Anomaly: Point;Break: Trend Shift
+ARI;Stochastic;Anomaly: Collective;
+ARI;Stochastic;Anomaly: Collective;Break: Mean Shift
+ARI;Stochastic;Anomaly: Collective;Break: Variance Shift
+ARI;Stochastic;Anomaly: Collective;Break: Trend Shift
+ARI;Stochastic;Break: Mean Shift;
+ARI;Stochastic;Break: Mean Shift;Anomaly: Point
+ARI;Stochastic;Break: Mean Shift;Anomaly: Collective
+ARI;Stochastic;Break: Variance Shift;
+ARI;Stochastic;Break: Variance Shift;Anomaly: Point
+ARI;Stochastic;Break: Variance Shift;Anomaly: Collective
+ARI;Stochastic;Break: Trend Shift;
+ARI;Stochastic;Break: Trend Shift;Anomaly: Point
+ARI;Stochastic;Break: Trend Shift;Anomaly: Collective
+IMA;Stochastic;Anomaly: Point;
+IMA;Stochastic;Anomaly: Point;Break: Mean Shift
+IMA;Stochastic;Anomaly: Point;Break: Variance Shift
+IMA;Stochastic;Anomaly: Point;Break: Trend Shift
+IMA;Stochastic;Anomaly: Collective;
+IMA;Stochastic;Anomaly: Collective;Break: Mean Shift
+IMA;Stochastic;Anomaly: Collective;Break: Variance Shift
+IMA;Stochastic;Anomaly: Collective;Break: Trend Shift
+IMA;Stochastic;Break: Mean Shift;
+IMA;Stochastic;Break: Mean Shift;Anomaly: Point
+IMA;Stochastic;Break: Mean Shift;Anomaly: Collective
+IMA;Stochastic;Break: Variance Shift;
+IMA;Stochastic;Break: Variance Shift;Anomaly: Point
+IMA;Stochastic;Break: Variance Shift;Anomaly: Collective
+IMA;Stochastic;Break: Trend Shift;
+IMA;Stochastic;Break: Trend Shift;Anomaly: Point
+IMA;Stochastic;Break: Trend Shift;Anomaly: Collective
+ARIMA;Stochastic;Anomaly: Point;
+ARIMA;Stochastic;Anomaly: Point;Break: Mean Shift
+ARIMA;Stochastic;Anomaly: Point;Break: Variance Shift
+ARIMA;Stochastic;Anomaly: Point;Break: Trend Shift
+ARIMA;Stochastic;Anomaly: Collective;
+ARIMA;Stochastic;Anomaly: Collective;Break: Mean Shift
+ARIMA;Stochastic;Anomaly: Collective;Break: Variance Shift
+ARIMA;Stochastic;Anomaly: Collective;Break: Trend Shift
+ARIMA;Stochastic;Break: Mean Shift;
+ARIMA;Stochastic;Break: Mean Shift;Anomaly: Point
+ARIMA;Stochastic;Break: Mean Shift;Anomaly: Collective
+ARIMA;Stochastic;Break: Variance Shift;
+ARIMA;Stochastic;Break: Variance Shift;Anomaly: Point
+ARIMA;Stochastic;Break: Variance Shift;Anomaly: Collective
+ARIMA;Stochastic;Break: Trend Shift;
+ARIMA;Stochastic;Break: Trend Shift;Anomaly: Point
+ARIMA;Stochastic;Break: Trend Shift;Anomaly: Collective
+SARMA;Seasonal;Anomaly: Point;
+SARMA;Seasonal;Anomaly: Point;Anomaly: Collective
+SARMA;Seasonal;Anomaly: Point;Anomaly: Contextual
+SARMA;Seasonal;Anomaly: Point;Break: Mean Shift
+SARMA;Seasonal;Anomaly: Point;Break: Variance Shift
+SARMA;Seasonal;Anomaly: Point;Break: Trend Shift
+SARMA;Seasonal;Anomaly: Collective;
+SARMA;Seasonal;Anomaly: Collective;Anomaly: Point
+SARMA;Seasonal;Anomaly: Collective;Anomaly: Contextual
+SARMA;Seasonal;Anomaly: Collective;Break: Mean Shift
+SARMA;Seasonal;Anomaly: Collective;Break: Variance Shift
+SARMA;Seasonal;Anomaly: Collective;Break: Trend Shift
+SARMA;Seasonal;Anomaly: Contextual;
+SARMA;Seasonal;Anomaly: Contextual;Anomaly: Point
+SARMA;Seasonal;Anomaly: Contextual;Anomaly: Collective
+SARMA;Seasonal;Anomaly: Contextual;Break: Mean Shift
+SARMA;Seasonal;Anomaly: Contextual;Break: Variance Shift
+SARMA;Seasonal;Anomaly: Contextual;Break: Trend Shift
+SARMA;Seasonal;Break: Mean Shift;
+SARMA;Seasonal;Break: Mean Shift;Anomaly: Point
+SARMA;Seasonal;Break: Mean Shift;Anomaly: Collective
+SARMA;Seasonal;Break: Mean Shift;Anomaly: Contextual
+SARMA;Seasonal;Break: Mean Shift;Break: Variance Shift
+SARMA;Seasonal;Break: Mean Shift;Break: Trend Shift
+SARMA;Seasonal;Break: Variance Shift;
+SARMA;Seasonal;Break: Variance Shift;Anomaly: Point
+SARMA;Seasonal;Break: Variance Shift;Anomaly: Collective
+SARMA;Seasonal;Break: Variance Shift;Anomaly: Contextual
+SARMA;Seasonal;Break: Variance Shift;Break: Mean Shift
+SARMA;Seasonal;Break: Variance Shift;Break: Trend Shift
+SARMA;Seasonal;Break: Trend Shift;
+SARMA;Seasonal;Break: Trend Shift;Anomaly: Point
+SARMA;Seasonal;Break: Trend Shift;Anomaly: Collective
+SARMA;Seasonal;Break: Trend Shift;Anomaly: Contextual
+SARMA;Seasonal;Break: Trend Shift;Break: Mean Shift
+SARMA;Seasonal;Break: Trend Shift;Break: Variance Shift
+SARIMA;Seasonal;Anomaly: Point;
+SARIMA;Seasonal;Anomaly: Point;Anomaly: Collective
+SARIMA;Seasonal;Anomaly: Point;Anomaly: Contextual
+SARIMA;Seasonal;Anomaly: Point;Break: Mean Shift
+SARIMA;Seasonal;Anomaly: Point;Break: Variance Shift
+SARIMA;Seasonal;Anomaly: Point;Break: Trend Shift
+SARIMA;Seasonal;Anomaly: Collective;
+SARIMA;Seasonal;Anomaly: Collective;Anomaly: Point
+SARIMA;Seasonal;Anomaly: Collective;Anomaly: Contextual
+SARIMA;Seasonal;Anomaly: Collective;Break: Mean Shift
+SARIMA;Seasonal;Anomaly: Collective;Break: Variance Shift
+SARIMA;Seasonal;Anomaly: Collective;Break: Trend Shift
+SARIMA;Seasonal;Anomaly: Contextual;
+SARIMA;Seasonal;Anomaly: Contextual;Anomaly: Point
+SARIMA;Seasonal;Anomaly: Contextual;Anomaly: Collective
+SARIMA;Seasonal;Anomaly: Contextual;Break: Mean Shift
+SARIMA;Seasonal;Anomaly: Contextual;Break: Variance Shift
+SARIMA;Seasonal;Anomaly: Contextual;Break: Trend Shift
+SARIMA;Seasonal;Break: Mean Shift;
+SARIMA;Seasonal;Break: Mean Shift;Anomaly: Point
+SARIMA;Seasonal;Break: Mean Shift;Anomaly: Collective
+SARIMA;Seasonal;Break: Mean Shift;Anomaly: Contextual
+SARIMA;Seasonal;Break: Mean Shift;Break: Variance Shift
+SARIMA;Seasonal;Break: Mean Shift;Break: Trend Shift
+SARIMA;Seasonal;Break: Variance Shift;
+SARIMA;Seasonal;Break: Variance Shift;Anomaly: Point
+SARIMA;Seasonal;Break: Variance Shift;Anomaly: Collective
+SARIMA;Seasonal;Break: Variance Shift;Anomaly: Contextual
+SARIMA;Seasonal;Break: Variance Shift;Break: Mean Shift
+SARIMA;Seasonal;Break: Variance Shift;Break: Trend Shift
+SARIMA;Seasonal;Break: Trend Shift;
+SARIMA;Seasonal;Break: Trend Shift;Anomaly: Point
+SARIMA;Seasonal;Break: Trend Shift;Anomaly: Collective
+SARIMA;Seasonal;Break: Trend Shift;Anomaly: Contextual
+SARIMA;Seasonal;Break: Trend Shift;Break: Mean Shift
+SARIMA;Seasonal;Break: Trend Shift;Break: Variance Shift
+ARCH;Volatility;Anomaly: Point;
+ARCH;Volatility;Anomaly: Point;Anomaly: Collective
+ARCH;Volatility;Anomaly: Point;Break: Mean Shift
+ARCH;Volatility;Anomaly: Point;Break: Variance Shift
+ARCH;Volatility;Anomaly: Point;Break: Trend Shift
+ARCH;Volatility;Anomaly: Collective;
+ARCH;Volatility;Anomaly: Collective;Anomaly: Point
+ARCH;Volatility;Anomaly: Collective;Break: Mean Shift
+ARCH;Volatility;Anomaly: Collective;Break: Variance Shift
+ARCH;Volatility;Anomaly: Collective;Break: Trend Shift
+ARCH;Volatility;Break: Mean Shift;
+ARCH;Volatility;Break: Mean Shift;Anomaly: Point
+ARCH;Volatility;Break: Mean Shift;Anomaly: Collective
+ARCH;Volatility;Break: Mean Shift;Break: Variance Shift
+ARCH;Volatility;Break: Mean Shift;Break: Trend Shift
+ARCH;Volatility;Break: Variance Shift;
+ARCH;Volatility;Break: Variance Shift;Anomaly: Point
+ARCH;Volatility;Break: Variance Shift;Anomaly: Collective
+ARCH;Volatility;Break: Variance Shift;Break: Mean Shift
+ARCH;Volatility;Break: Variance Shift;Break: Trend Shift
+ARCH;Volatility;Break: Trend Shift;
+ARCH;Volatility;Break: Trend Shift;Anomaly: Point
+ARCH;Volatility;Break: Trend Shift;Anomaly: Collective
+ARCH;Volatility;Break: Trend Shift;Break: Mean Shift
+ARCH;Volatility;Break: Trend Shift;Break: Variance Shift
+GARCH;Volatility;Anomaly: Point;
+GARCH;Volatility;Anomaly: Point;Anomaly: Collective
+GARCH;Volatility;Anomaly: Point;Break: Mean Shift
+GARCH;Volatility;Anomaly: Point;Break: Variance Shift
+GARCH;Volatility;Anomaly: Point;Break: Trend Shift
+GARCH;Volatility;Anomaly: Collective;
+GARCH;Volatility;Anomaly: Collective;Anomaly: Point
+GARCH;Volatility;Anomaly: Collective;Break: Mean Shift
+GARCH;Volatility;Anomaly: Collective;Break: Variance Shift
+GARCH;Volatility;Anomaly: Collective;Break: Trend Shift
+GARCH;Volatility;Break: Mean Shift;
+GARCH;Volatility;Break: Mean Shift;Anomaly: Point
+GARCH;Volatility;Break: Mean Shift;Anomaly: Collective
+GARCH;Volatility;Break: Mean Shift;Break: Variance Shift
+GARCH;Volatility;Break: Mean Shift;Break: Trend Shift
+GARCH;Volatility;Break: Variance Shift;
+GARCH;Volatility;Break: Variance Shift;Anomaly: Point
+GARCH;Volatility;Break: Variance Shift;Anomaly: Collective
+GARCH;Volatility;Break: Variance Shift;Break: Mean Shift
+GARCH;Volatility;Break: Variance Shift;Break: Trend Shift
+GARCH;Volatility;Break: Trend Shift;
+GARCH;Volatility;Break: Trend Shift;Anomaly: Point
+GARCH;Volatility;Break: Trend Shift;Anomaly: Collective
+GARCH;Volatility;Break: Trend Shift;Break: Mean Shift
+GARCH;Volatility;Break: Trend Shift;Break: Variance Shift
+EGARCH;Volatility;Anomaly: Point;
+EGARCH;Volatility;Anomaly: Point;Anomaly: Collective
+EGARCH;Volatility;Anomaly: Point;Break: Mean Shift
+EGARCH;Volatility;Anomaly: Point;Break: Variance Shift
+EGARCH;Volatility;Anomaly: Point;Break: Trend Shift
+EGARCH;Volatility;Anomaly: Collective;
+EGARCH;Volatility;Anomaly: Collective;Anomaly: Point
+EGARCH;Volatility;Anomaly: Collective;Break: Mean Shift
+EGARCH;Volatility;Anomaly: Collective;Break: Variance Shift
+EGARCH;Volatility;Anomaly: Collective;Break: Trend Shift
+EGARCH;Volatility;Break: Mean Shift;
+EGARCH;Volatility;Break: Mean Shift;Anomaly: Point
+EGARCH;Volatility;Break: Mean Shift;Anomaly: Collective
+EGARCH;Volatility;Break: Mean Shift;Break: Variance Shift
+EGARCH;Volatility;Break: Mean Shift;Break: Trend Shift
+EGARCH;Volatility;Break: Variance Shift;
+EGARCH;Volatility;Break: Variance Shift;Anomaly: Point
+EGARCH;Volatility;Break: Variance Shift;Anomaly: Collective
+EGARCH;Volatility;Break: Variance Shift;Break: Mean Shift
+EGARCH;Volatility;Break: Variance Shift;Break: Trend Shift
+EGARCH;Volatility;Break: Trend Shift;
+EGARCH;Volatility;Break: Trend Shift;Anomaly: Point
+EGARCH;Volatility;Break: Trend Shift;Anomaly: Collective
+EGARCH;Volatility;Break: Trend Shift;Break: Mean Shift
+EGARCH;Volatility;Break: Trend Shift;Break: Variance Shift
+APARCH;Volatility;Anomaly: Point;
+APARCH;Volatility;Anomaly: Point;Anomaly: Collective
+APARCH;Volatility;Anomaly: Point;Break: Mean Shift
+APARCH;Volatility;Anomaly: Point;Break: Variance Shift
+APARCH;Volatility;Anomaly: Point;Break: Trend Shift
+APARCH;Volatility;Anomaly: Collective;
+APARCH;Volatility;Anomaly: Collective;Anomaly: Point
+APARCH;Volatility;Anomaly: Collective;Break: Mean Shift
+APARCH;Volatility;Anomaly: Collective;Break: Variance Shift
+APARCH;Volatility;Anomaly: Collective;Break: Trend Shift
+APARCH;Volatility;Break: Mean Shift;
+APARCH;Volatility;Break: Mean Shift;Anomaly: Point
+APARCH;Volatility;Break: Mean Shift;Anomaly: Collective
+APARCH;Volatility;Break: Mean Shift;Break: Variance Shift
+APARCH;Volatility;Break: Mean Shift;Break: Trend Shift
+APARCH;Volatility;Break: Variance Shift;
+APARCH;Volatility;Break: Variance Shift;Anomaly: Point
+APARCH;Volatility;Break: Variance Shift;Anomaly: Collective
+APARCH;Volatility;Break: Variance Shift;Break: Mean Shift
+APARCH;Volatility;Break: Variance Shift;Break: Trend Shift
+APARCH;Volatility;Break: Trend Shift;
+APARCH;Volatility;Break: Trend Shift;Anomaly: Point
+APARCH;Volatility;Break: Trend Shift;Anomaly: Collective
+APARCH;Volatility;Break: Trend Shift;Break: Mean Shift
+APARCH;Volatility;Break: Trend Shift;Break: Variance Shift

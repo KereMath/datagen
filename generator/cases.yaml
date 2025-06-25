@@ -6,7 +6,7 @@ mean_shift:
   multi:
     - {num_breaks: 2}
     - {num_breaks: 3}
-    - {num_breaks: 4}  # Maksimum 4 kırılma noktası ekledim
+    - {num_breaks: 4}
 
 variance_shift:
   single:
@@ -15,26 +15,30 @@ variance_shift:
     - {location: end, num_breaks: 1}
   multi:
     - {num_breaks: 2}
-    - {num_breaks: 3}  # 3 kırılma noktası ekledim
-    - {num_breaks: 4}  # 4 kırılma noktası ekledim
+    - {num_breaks: 3}
+    - {num_breaks: 4}
 
 trend_shift:
   single:
-    - {location: beginning, change_type: direction_change}
-    - {location: beginning, change_type: magnitude_change}
-    - {location: beginning, change_type: direction_and_magnitude_change}
-    - {location: middle, change_type: direction_change}
-    - {location: middle, change_type: magnitude_change}
-    - {location: middle, change_type: direction_and_magnitude_change}
-    - {location: end, change_type: direction_change}
-    - {location: end, change_type: magnitude_change}
-    - {location: end, change_type: direction_and_magnitude_change}
+    - {location: beginning, change_type: direction_change, num_breaks: 1}
+    - {location: beginning, change_type: magnitude_change, num_breaks: 1}
+    - {location: beginning, change_type: direction_and_magnitude_change, num_breaks: 1}
+    - {location: middle, change_type: direction_change, num_breaks: 1}
+    - {location: middle, change_type: magnitude_change, num_breaks: 1}
+    - {location: middle, change_type: direction_and_magnitude_change, num_breaks: 1}
+    - {location: end, change_type: direction_change, num_breaks: 1}
+    - {location: end, change_type: magnitude_change, num_breaks: 1}
+    - {location: end, change_type: direction_and_magnitude_change, num_breaks: 1}
   multi:
     - {num_breaks: 2, change_type: direction_change}
     - {num_breaks: 2, change_type: magnitude_change}
     - {num_breaks: 2, change_type: direction_and_magnitude_change}
-    - {num_breaks: 3, change_type: direction_change}  # 3 kırılma ekledim
-    - {num_breaks: 4, change_type: magnitude_change}  # 4 kırılma ekledim
+    - {num_breaks: 3, change_type: direction_change}
+    - {num_breaks: 3, change_type: magnitude_change}
+    - {num_breaks: 3, change_type: direction_and_magnitude_change}
+    - {num_breaks: 4, change_type: direction_change}
+    - {num_breaks: 4, change_type: magnitude_change}
+    - {num_breaks: 4, change_type: direction_and_magnitude_change}
 
 point_anomaly:
   single:
@@ -42,9 +46,10 @@ point_anomaly:
     - {location: middle}
     - {location: end}
   multi:
-    - {num_anomalies: 2}  # Belirtilen sayıda anomali
-    - {num_anomalies: 3}  # 3 anomali ekledim
-    - {num_anomalies: 4}  # 4 anomali ekledim
+    # TSGen rastgele 2-25 arası üretiyor, wrapper'da 2-4 arasına filtreleniyor
+    - {target_anomalies: 2}
+    - {target_anomalies: 3}
+    - {target_anomalies: 4}
 
 collective_anomaly:
   single:
@@ -53,14 +58,9 @@ collective_anomaly:
     - {location: end, num_anomalies: 1}
   multi:
     - {num_anomalies: 2}
-    - {num_anomalies: 3}  # 3 anomali
-    - {num_anomalies: 4}  # 4 anomali
+    - {num_anomalies: 3}
+    - {num_anomalies: 4}
 
 contextual_anomaly:
   single:
-    - {location: beginning}
-    - {location: middle}
-    - {location: end}
-  multi:
-    - {num_anomalies: 2}
-    - {num_anomalies: 3}
+    - {}  # Sadece contextual anomaly - TSGen'de multi desteği yok
